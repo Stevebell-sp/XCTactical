@@ -20,6 +20,7 @@
   - 原版腳步聲 → 攔 `PlayLevelSoundEvent`。
   - 模組腳步聲 → 攔 Forge 客戶端 `PlaySoundEvent`（`SoundEngine` 層），相容 **[PresenceFootsteps](https://modrinth.com/mod/presence-footsteps)**（它的腳步音效 ID 為 `presencefootsteps:pf_presence.*`、且不經 `Level.playSound`，必須在更底層攔截）。
 - 消音判斷以「音效播放位置是否貼近正在靜步的玩家」為準，因此**本地與遠端玩家、原版與模組腳步**都吃得到。
+- **走樓梯與攀爬**（梯子 / 藤蔓 / 鷹架）時同樣會套用靜步（消音 + 減速）。
 - 目前行為：靜步時**連自己也聽不到**自己的腳步（與瓦羅蘭一致）。
 
 ---

@@ -52,8 +52,7 @@ public final class ClientHandler {
                 && XCKeys.SILENT_WALK.isDown()
                 && !p.isSpectator()
                 && !p.getAbilities().flying
-                && !p.isPassenger()
-                && !p.onClimbable();
+                && !p.isPassenger();
         SilentState.selfActive = active;
 
         if (active && p.isSprinting()) {
