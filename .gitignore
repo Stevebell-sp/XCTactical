@@ -1,0 +1,22 @@
+# Gradle / build
+build/
+.gradle/
+out/
+bin/
+
+# 本機建置輔助（schtasks 繞道用，含本機絕對路徑）
+_build.bat
+build_log.txt
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# Loom / run
+run/
+runs/
+*.log

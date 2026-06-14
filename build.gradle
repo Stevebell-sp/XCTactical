@@ -1,0 +1,43 @@
+plugins {
+    id 'dev.architectury.loom' version '1.13-SNAPSHOT'
+    id 'java'
+}
+
+base.archivesName = "${mod_id}-forge-${minecraft_version}"
+version = mod_version
+group = mod_group
+
+loom {
+    silentMojangMappingsLicense()
+}
+
+repositories {
+    mavenCentral()
+    maven { url "https://maven.minecraftforge.net/" }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${minecraft_version}"
+    mappings loom.officialMojangMappings()
+    forge "net.minecraftforge:forge:${forge_version}"
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = "UTF-8"
+    options.release = 17
+}
+
+processResources {
+    filteringCharset = 'UTF-8'
+    inputs.property "version", project.version
+    inputs.property "mod_id", mod_id
+    filesMatching("META-INF/mods.toml") {
+        expand "version": project.version, "mod_id": mod_id
+    }
+}
